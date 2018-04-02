@@ -46,7 +46,7 @@ if __name__ == '__main__':
     listener = tf2_ros.TransformListener(tfBuffer)
     objects = OBJECTS
     rate = rospy.Rate(10.0)
-    while not rospy.is_shutdown():
+    # while not rospy.is_shutdown():
         for object_name in objects:
             try:
                 trans = tfBuffer.lookup_transform("odom", object_name, rospy.Time())
