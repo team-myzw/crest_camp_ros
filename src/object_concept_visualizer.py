@@ -47,17 +47,17 @@ if __name__ == '__main__':
     objects = OBJECTS
     rate = rospy.Rate(10.0)
     # while not rospy.is_shutdown():
-        for object_name in objects:
-            try:
-                trans = tfBuffer.lookup_transform("odom", object_name, rospy.Time())
-                print trans
-                # conc = id2concept(object_name)
-                # word = concept2word(conc)
-                word = "ika"
-                marker_set(object_name, trans.transform.translation, word)
-            except (tf2_ros.LookupException, tf2_ros.ConnectivityException, tf2_ros.ExtrapolationException):
-                rate.sleep()
-                continue
+    for object_name in objects:
+        try:
+            trans = tfBuffer.lookup_transform("odom", object_name, rospy.Time())
+            print trans
+            # conc = id2concept(object_name)
+            # word = concept2word(conc)
+            word = object_name
+            marker_set(object_name, trans.transform.translation, word)
+        except (tf2_ros.LookupException, tf2_ros.ConnectivityException, tf2_ros.ExtrapolationException):
+            rate.sleep()
+            continue
 
 
         rate.sleep()
