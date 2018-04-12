@@ -21,11 +21,11 @@
 
 ### 地図作成：  
 
-1. 以下のコマンドを実行し，コントローラによりロボットを操作しmapを作成する.  
+1. コントローラによりロボットを操作しmapを作成  
  `rosrun gmapping slam_gmapping scan:=/hsrb/base_scan`  
  `roslaunch hsrb_joy_controller exp.launch`  
 
-2. 以下のコマンドでmapを保存する  
+2. mapの保存  
 `roscd crest_camp_ros`  
 `mkdir map`  
 `cd map`  

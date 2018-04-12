@@ -1,0 +1,21 @@
+<launch>
+	<!-- SIGVerse -->
+	<include file="$(find crest_camp_ros)/launch/main.launch" />
+
+	<!-- map -->
+	<arg name="map" default="$(find crest_camp_ros)/map/map.yaml" />
+	<node name="amcl" pkg="amcl" type="amcl" output="screen" cwd="node">
+		<remap from="scan" to="/hsrb/base_scan"/>
+	</node>
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map)"  output="screen" cwd="node" />
+	<node name="base_footprint_to_base_link" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 /base_footprint /base_link 100" />
+  <node name="floor_to_odom" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 map odom 10" />
+
+	<!-- controller-->
+	<include file="$(find hsrb_joy_controller)/launch/marker.launch" />
+	<include file="$(find hsrb_joy_controller)/launch/exp.launch" />
+
+	<!-- Audio -->
+	<include file="$(find crest_camp_ros)/launch/rosbridge_websocket_for_audio.launch" />
+
+</launch>

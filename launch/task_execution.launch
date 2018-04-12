@@ -1,0 +1,17 @@
+<launch>
+	<!-- SIGVerse -->
+	<include file="$(find crest_camp_ros)/launch/main.launch" />
+
+	<!-- navigation -->
+	<arg name="map" default="$(find crest_camp_ros)/map/map.yaml" />
+	<include file="/home/miyazawa/Desktop/navigation.launch" />
+	<node name="em_path_plan" pkg="em_spco_formation" type="em_path_plan.py" output="screen" cwd="node" />
+
+	<!-- controller-->
+	<include file="$(find hsrb_joy_controller)/launch/marker.launch" />
+	<include file="$(find hsrb_joy_controller)/launch/exp.launch" />
+
+	<!-- Audio -->
+	<include file="$(find crest_camp_ros)/launch/rosbridge_websocket_for_audio.launch" />
+
+</launch>
