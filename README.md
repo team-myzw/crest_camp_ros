@@ -32,16 +32,14 @@
 `rosrun map_server map_saver`
 
 ### SIGVerseでの情報取得:  
-1. WindowsPCでSIGverseを立ち上げ,ROSとの通信を設定する.  
-2. mapフォルダ内に含まれるmap.yamlをmap_serverを用いて実行する.rosrun　map_server map_server map.yaml  
-3. `roslaunch crest_camp_ros main.launch`
-4. web_speech_api[ coming soon ]を起動する  
-5. `roscd rosbag_database/src`  
-6. `rosrun rosbag_database bag_database.py`  
-7. hsrb_joy_controllerのmarker_publisherの設定を対象とする物体に応じて設定する  
-8. `roslaunch hsrb_joy_controller marker.launch`
-9. `roslaunch hsrb_joy_controller exp.launch`
-10. ロボットを操作しながら，ロボットの行動に対応した発話を行う．
+1. hsrb_joy_controllerのmarker_publisherの設定を対象とする物体に応じて設定する
+1. WindowsPCでSIGverseを立ち上げる
+1. `roslaunch crest_camp_ros get_info.launch`
+1. web_speech_api[ coming soon ]を起動する  
+1. Unityでゲームをスタート
+1. `roscd rosbag_database/src`  
+1. `rosrun rosbag_database bag_database.py`  
+1. ロボットを操作しながら，ロボットの行動に対応した発話を行う．
 
 ## モデルの学習
 ### 場所概念の学習
@@ -57,8 +55,13 @@
 追記予定
 
 ## 言語命令によるタスク実行  
-* [crest-camp-unity](https://github.com/team-myzw/crest-camp-unity)の環境をwindows・ubuntu共に実行
-* [gp_hsmm_action](https://github.com/team-myzw/gp_hsmm_action)の学習動作実行方法に従い，動作生成用プログラムを準備
-* [spco_formationのnavigation](https://github.com/team-myzw/spco_formation#navigation)に従い，navigationの準備
-* `rosrun crest_camp_ros sentence2task.py`
-* `/crest_camp_ros/order`に命令文を送る
+1. hsrb_joy_controllerのmarker_publisherの設定を対象とする物体に応じて設定する
+1. WindowsPCでSIGverseを立ち上げる
+1. `roslaunch crest_camp_ros get_info.launch`
+1. web_speech_api[ coming soon ]を起動する  
+1. Unityでゲームをスタート
+1. [gp_hsmm_action](https://github.com/team-myzw/gp_hsmm_action)の学習動作実行方法に従い，動作生成用プログラムを準備
+1. `roslaunch crest_camp_ros task_execution.launch`
+1. `roscd em_spco_formation/src/`
+1. `python em_name2place.py <<TRIALNAME>>`
+1. web_speech_apiによる音声認識で命令文を送る [coming soon]
