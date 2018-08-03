@@ -33,7 +33,7 @@ def make_obs(obs_data, sen_data):
     object_object = df2list(obs_data,"category_hist")
     motion_motion = df2list(obs_data,"action_hist")
     place_place = df2list(obs_data,"place_hist")
-    words_all =  df2list(obs_df,"word_hist")  
+    words_all =  df2list(obs_data,"word_hist")  
     splited_sentences = []    
 
     # 全sentenceの処理
@@ -201,7 +201,7 @@ class ICA(object):
         # self.reinforce_.load_model( os.path.join( self.reinforce_.get_name(), "rl_param_%03d.txt" % nit) )
         # self.reinforce_.set_nit(nit)
 
-    def recog(self,obs,correct):
+    def recog(self,obs,correct=None):
         # Recog
         # reset msg
         self.mlda1.reset_msg()

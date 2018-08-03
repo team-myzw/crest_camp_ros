@@ -42,17 +42,10 @@
 1. ロボットを操作しながら，ロボットの行動に対応した発話を行う．
 
 ## モデルの学習
-### 場所概念の学習
-[spco_formation](https://github.com/team-myzw/spco_formation)を参考  
-追記予定
-
-### 動作の学習
-[gp_hsmm_action](https://github.com/team-myzw/gp_hsmm_action)を参考  
-追記予定
-
-### 統合概念・言語の学習
-[mmlda_bhmm](https://github.com/team-myzw/mmlda_bhmm)を参考  
-追記予定
+0. 動作の学習 [gp_hsmm_action](https://github.com/team-myzw/gp_hsmm_action)
+1. 場所概念の学習 [spco_formation training](https://github.com/team-myzw/spco_formation#training) 
+2. src/
+3. 統合モデルの学習 
 
 ## 言語命令によるタスク実行  
 1. hsrb_joy_controllerのmarker_publisherの設定を対象とする物体に応じて設定する
