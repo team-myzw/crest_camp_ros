@@ -1,10 +1,11 @@
 *.pyc
 notebook/.ipynb_checkpoints
+notebook/data/*
+notebook/learn/*
 
 src/module*
-
 src/*.csv
+src/codebook.txt
 
-notebook/data/*
-
-notebook/learn/*
+*.png
+*.svg

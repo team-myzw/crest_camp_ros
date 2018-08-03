@@ -49,6 +49,7 @@ def make_obs(obs_data, sen_data):
     word_client.reset()
     splited_sentences.extend(splited_sen)
     codebook = word_client._codebook
+    word_client.dump_codebook("./codebook.txt")
 
     obs = [object_object, motion_motion,
     place_place, words_all, 
@@ -68,6 +69,13 @@ class ICA(object):
         place_category_num = 3
         top_category_num = 6
         hmm_category_num = 6
+
+        # 言語学習用
+        bottom_concept_num = 3
+        particle_num = 3 # 助詞の種類
+        word_threshold = 0.08
+        word_max_dim = 200
+
         # モデル全体の繰り返し回数
         self.updata_itr = 5
         # mldaの重み
@@ -88,7 +96,8 @@ class ICA(object):
         self.mlda3 = mlda.MLDA(place_category_num, [w, w], itr=itration, itr_recog=itration_recog)
         self.mlda_top = mlda.MLDA(top_category_num, [w, w, w], itr=itration, itr_recog=itration_recog)
         self.hmm_planning = hmm.HMM(hmm_category_num, itr=itration,name="hmm_planning", itr_recog=itration_recog, multinomial_dim=10)
-        self.hmm_launguage = mmlda_bhmm.MMLDA_BHMM(itration,3,13,0.008,200)
+        self.hmm_launguage = mmlda_bhmm.MMLDA_BHMM(itration,bottom_concept_num, 
+        bottom_concept_num + particle_num, word_threshold ,word_max_dim)
         # self.reinforce_ = reinforce.REINFORCE(32, 4, 0.01)
 
     def leran(self,obs,correct):
