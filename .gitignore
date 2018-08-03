@@ -1,5 +1,5 @@
 *.pyc
-notebooks/.ipynb_checkpoints
+notebook/.ipynb_checkpoints
 
 src/module*
 
