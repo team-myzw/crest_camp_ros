@@ -1,2 +1,6 @@
 *.pyc
 notebooks/.ipynb_checkpoints
+
+src/module*
+
+src/*.csv
