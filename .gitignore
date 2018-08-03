@@ -4,3 +4,7 @@ notebooks/.ipynb_checkpoints
 src/module*
 
 src/*.csv
+
+notebook/data/*
+
+notebook/learn/*
