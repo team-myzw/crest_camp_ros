@@ -3,6 +3,7 @@
 学習したモデルを用いることで，言語命令からタスクを実行する．
 
 ## Dependencies  
+* serket ブランチ serket4baxter
 * [sigverse_ros_package](https://github.com/SIGVerse/sigverse_ros_package)
 * [SigVerse ver.3](http://www.sigverse.org/wiki/jp/?Tutorial)
 * [crest-camp-unity](https://github.com/team-myzw/crest-camp-unity)
@@ -44,8 +45,11 @@
 ## モデルの学習
 0. 動作の学習 [gp_hsmm_action](https://github.com/team-myzw/gp_hsmm_action)
 1. 場所概念の学習 [spco_formation training](https://github.com/team-myzw/spco_formation#training) 
-2. src/
-3. 統合モデルの学習 
+2. 統合モデルの学習 
+    1. 特徴抽出 `crest_camp_ros/notebook/feature.ipynb`
+    2. `cd crest_camp_ros/src`
+    3. モデルの学習 `python hmm_mmlda_hmm.py`
+3. プランニングサンプル `python ica_planner.py`
 
 ## 言語命令によるタスク実行  
 1. hsrb_joy_controllerのmarker_publisherの設定を対象とする物体に応じて設定する

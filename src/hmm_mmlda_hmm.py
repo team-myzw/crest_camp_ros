@@ -79,7 +79,7 @@ class ICA(object):
         # モデル全体の繰り返し回数
         self.updata_itr = 5
         # mldaの重み
-        w = 500
+        w = 50
         # 各モジュールの繰り返し回数
         itration = 50
         itration_recog = 10
@@ -107,6 +107,9 @@ class ICA(object):
         P_P = obs[2]
 
         W_ALL = obs[3]
+        print obs[0].shape
+        print obs[1].shape
+
         
         sentences = obs[4]
         codebook = obs[5]
@@ -131,10 +134,10 @@ class ICA(object):
         self.obs1.set_forward_msg(O_O)     # 物体情報
         self.obs2.set_forward_msg(W_O)      # 物体単語
 
-        self.obs3.set_forward_msg(M_M )     # 動作情報
+        self.obs3.set_forward_msg(M_M)     # 動作情報
         self.obs4.set_forward_msg(W_M)      # 動作単語
 
-        self.obs5.set_forward_msg(P_P )     # 場所情報
+        self.obs5.set_forward_msg(P_P)     # 場所情報
         self.obs6.set_forward_msg(W_P)      # 場所単語
 
         # connect
