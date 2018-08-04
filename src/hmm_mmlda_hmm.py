@@ -79,7 +79,7 @@ class ICA(object):
         # モデル全体の繰り返し回数
         self.updata_itr = 5
         # mldaの重み
-        w = 50
+        w = 500
         # 各モジュールの繰り返し回数
         itration = 50
         itration_recog = 10
@@ -91,7 +91,7 @@ class ICA(object):
         self.obs5 = srk.Observation( None )    # 場所情報
         self.obs6 = srk.Observation( None )    # 場所単語
 
-        self.mlda1 = mlda.MLDA(object_category_num, [w, w, w, w], itr=itration, itr_recog=itration_recog)
+        self.mlda1 = mlda.MLDA(object_category_num, [w, w], itr=itration, itr_recog=itration_recog)
         self.mlda2 = mlda.MLDA(motion_category_num, [w, w], itr=itration, itr_recog=itration_recog)
         self.mlda3 = mlda.MLDA(place_category_num, [w, w], itr=itration, itr_recog=itration_recog)
         self.mlda_top = mlda.MLDA(top_category_num, [w, w, w], itr=itration, itr_recog=itration_recog)
@@ -107,9 +107,6 @@ class ICA(object):
         P_P = obs[2]
 
         W_ALL = obs[3]
-        print obs[0].shape
-        print obs[1].shape
-
         
         sentences = obs[4]
         codebook = obs[5]
